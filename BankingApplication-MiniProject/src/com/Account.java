@@ -11,12 +11,11 @@ public class Account {
         this.balance = 0.0;
     }
 
-    // Getters & Setters
     public String getAccountNumber() { return accountNumber; }
     public String getHolderName() { return holderName; }
     public double getBalance() { return balance; }
 
-    // Deposit & Withdraw
+
     public synchronized void deposit(double amount) {
         balance += amount;
     }
@@ -27,8 +26,8 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "accountNumber='" + accountNumber + '\'' +
+        return "accountNumber='" + accountNumber + '\'' +
                 ", holderName='" + holderName + '\'' +
-                ", balance=" + balance + '}';
+                ", balance=" + balance;
     }
 }

@@ -15,3 +15,6 @@ class InsufficientBalanceException extends Exception {
 class AccountNotFoundException extends Exception {
     public AccountNotFoundException(String msg) { super(msg); }
 }
+class InvalidInputTypeException extends Exception {
+    public InvalidInputTypeException(String msg) { super(msg); }
+}
