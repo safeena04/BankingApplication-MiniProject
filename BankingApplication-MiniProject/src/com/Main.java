@@ -50,7 +50,8 @@ public class Main {
                             System.out.println("3. Transfer");
                             System.out.println("4. Check Balance");
                             System.out.println("5. Display All Accounts");
-                            System.out.println("6. Exit");
+                            System.out.println("6. Search Account by Name");
+                            System.out.println("7. Exit");
                             System.out.print("Enter your option: ");
 
                             int op = 0;
@@ -159,11 +160,30 @@ public class Main {
                                         manager.displayAllAccounts();
                                         break;
                                     case 6:
+                                        System.out.print("Enter the account holder name to search: ");
+                                        String searchName = sc.nextLine();
+
+                                        manager.getAllAccounts().stream()
+                                                .filter(acc -> acc.getHolderName().equalsIgnoreCase(searchName))
+                                                .findFirst()
+                                                .ifPresentOrElse(
+                                                        acc -> {
+                                                            System.out.println("Account Found!");
+                                                            System.out.println("Account Holder: " + acc.getHolderName());
+                                                            System.out.println("Account Number: " + acc.getAccountNumber());
+                                                            System.out.println("Current Balance: " + acc.getBalance());
+                                                        },
+                                                        () -> System.out.println("No account found with that name.")
+                                                );
+                                        break;
+
+                                    case 7:
                                         System.out.println("\nThank you, " + account.getHolderName() + "!");
                                         System.out.println("Your Current Balance: " + account.getBalance());
                                         System.out.println("Thanks for using our Banking Services!");
                                         chooseToContinue = false;
                                         break;
+
 
 
                                     default:
