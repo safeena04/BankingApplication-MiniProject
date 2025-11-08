@@ -23,4 +23,11 @@ public class AccountManager {
     public Collection<Account> getAllAccounts() {
         return accounts.values();
     }
+    public void displayAllAccounts() {
+        System.out.println("\n===== List of All Accounts =====");
+        for (Account acc : accounts.values()) {
+            System.out.println(acc.getHolderName() + " - " + acc.getAccountNumber() + " - Balance: " + acc.getBalance());
+        }
+    }
+
 }

@@ -49,7 +49,8 @@ public class Main {
                             System.out.println("2. Withdraw");
                             System.out.println("3. Transfer");
                             System.out.println("4. Check Balance");
-                            System.out.println("5. Exit");
+                            System.out.println("5. Display All Accounts");
+                            System.out.println("6. Exit");
                             System.out.print("Enter your option: ");
 
                             int op = 0;
@@ -102,6 +103,7 @@ public class Main {
                                                 System.out.println("Now please resume to your option......");
                                             } catch (InsufficientBalanceException e) {
                                                 System.out.println("Error: " + e.getMessage());
+                                                System.out.println("Enter amount less than your balance!!");
                                                 break;
                                             }
                                         }
@@ -140,7 +142,7 @@ public class Main {
                                                     validAmount = true;
                                                 } catch (InsufficientBalanceException e) {
                                                     System.out.println("Error: " + e.getMessage());
-                                                    System.out.println("Please check balance and Enter amount less than your balance!!");
+                                                    System.out.println("Enter amount less than your balance!!");
                                                     continue;
                                                 }
                                             }
@@ -149,19 +151,20 @@ public class Main {
                                         }
                                         break;
 
-
-
-
                                     case 4:
                                         System.out.println("Account Details: " + account);
                                         break;
 
                                     case 5:
+                                        manager.displayAllAccounts();
+                                        break;
+                                    case 6:
                                         System.out.println("\nThank you, " + account.getHolderName() + "!");
                                         System.out.println("Your Current Balance: " + account.getBalance());
                                         System.out.println("Thanks for using our Banking Services!");
                                         chooseToContinue = false;
                                         break;
+
 
                                     default:
                                         System.out.println("Invalid option! Try again.");
@@ -184,6 +187,7 @@ public class Main {
                             }
                         }
                         break;
+
                     }
 
                     case 2: {
